@@ -1,0 +1,96 @@
+<div style=" background-image:linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('https://images.pexels.com/photos/301703/pexels-photo-301703.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')!important;
+background-size:cover;height: 657px;width: 100%;margin: 0; ">
+    <h1 id="title">Rentahi</h1>
+    <p id="descriptionTitle">
+        Rent materials with people around.
+    </p>
+    <div style="float: right!important; margin-right: 100px; margin-top:40px;">
+        <mdb-card style="width: 600px;">
+            <!-- Default form login -->
+            <!-- Default form register -->
+            <form class="text-center border border-light p-5"  (ngSubmit)="onSignUp()" #signUpForm="ngForm">
+
+                <p class="h4 mb-4">Sign up</p>
+
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- First name -->
+                        <input type="text" class="form-control" placeholder="First name" ngModel name="Name"
+                            [(ngModel)]="firstname" required minlength="3" #fname="ngModel">
+                        <div *ngIf="fname.invalid && (fname.dirty || fname.touched )" class="notification">
+                            <div *ngIf="fname.errors.required">
+                                <p>Name is required</p>
+                            </div>
+                            <div *ngIf="fname.errors.minlength">
+                                <p>Name must at least 3 characters long</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- Last name -->
+                        <input type="text" class="form-control" placeholder="Last name" ngModel name="LastName"
+                            [(ngModel)]="lastname" required minlength="2" #lname="ngModel">
+                        <div *ngIf="lname.invalid && (lname.dirty || lname.touched )" class="notification">
+                            <div *ngIf="lname.errors.required">
+                                <p>Last Name is required</p>
+                            </div>
+                            <div *ngIf="lname.errors.minlength">
+                                <p>Last Name must at least 3 characters long</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- E-mail -->
+
+                <input type="email" class="form-control mb-4" placeholder="E-mail" ngModel name="email"
+                    [(ngModel)]="email" required #emailadd="ngModel" [email]="true">
+                <div *ngIf="emailadd.invalid && (emailadd.dirty || emailadd.touched )" class="emailnotif">
+                    <div *ngIf="emailadd.errors.required">Email is required</div>
+                    <div *ngIf="emailadd.errors.email">Email is invalid </div>
+                </div>
+
+                <!-- Contact Number -->
+                <input type="number" class="form-control mb-4" placeholder="Contact Number" ngModel name="Contact"
+                    [(ngModel)]="contact" required minlength="11" #contactNum="ngModel">
+                <div *ngIf="contactNum.invalid && (contactNum.dirty || contactNum.touched )" class="connotif">
+                    <div *ngIf="contactNum.errors.required">
+                        <p>Contact Number is required</p>
+                    </div>
+                    <div *ngIf="contactNum.errors.minlength">
+                        <p>Contact Number must be 11 numbers</p>
+                    </div>
+                </div>
+
+
+                <!-- Username -->
+                <input class="form-control mb-4" placeholder="Username" ngModel name="UserName" [(ngModel)]="username"
+                    required minlength="3" #uname="ngModel">
+                <div *ngIf="uname.invalid && (uname.dirty || uname.touched )" class="unamenotif">
+                    <div *ngIf="uname.errors.required">
+                        <p>Username is required</p>
+                    </div>
+                    <div *ngIf="uname.errors.minlength">
+                        <p>Username must at least 3 characters long</p>
+                    </div>
+                </div>
+                <input type="password" class="form-control" placeholder="Password"
+                    aria-describedby="defaultRegisterFormPasswordHelpBlock" ngModel name='password'
+                    [(ngModel)]="password" required minlength="8" #Password="ngModel">
+
+                <div *ngIf="Password.invalid && (Password.dirty || Password.touched )" class="passwordNotif">
+                    <div *ngIf="Password.errors.required">
+                        <p>Password is required</p>
+                    </div>
+                    <div *ngIf="Password.errors.minlength">
+                        <p>Password must at least 8 characters long</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-info my-4 btn-block" [disabled]="!signUpForm.form.valid" >Sign in</button>
+                <p>Already have an account?
+                    <a routerLink="">Login</a>
+                </p>
+            </form>
+        </mdb-card>
+    </div>
+</div>

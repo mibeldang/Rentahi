@@ -1,0 +1,83 @@
+<app-header></app-header>
+<div class="container my-5">
+    <!-- Section -->
+    <section>
+        <!--Tab panels-->
+        <div class="tab-content mb-5">
+            <!--Panel 1-->  
+            <div class="tab-pane fade show in active" id="panel31" role="tabpanel">
+                <!-- Grid row -->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-12 col-lg-4" *ngFor="let post of postsList">
+                        <!-- Card -->
+                        <a class="card hoverable mb-4" (click)="basicModal.show()" mdbWavesEffect>
+                            <!-- Card image -->
+                            <p class="card-text mb-1 name">
+                                <mdb-icon far icon="user-circle"></mdb-icon> {{post.username}}
+                            </p>
+                            <img class="card-img-top image" [src]="post.image" alt="Card image cap">
+                            <!-- Card content -->
+                            <div class="card-body">
+                                <h5 class="my-3"> {{post.title}}</h5>
+                                <p class="card-text mb-1">{{post.description}}</p>
+                                <p class="card-text mb-1">PHP {{post.price}}</p>
+                            </div>
+                        </a>
+                        <!-- Card -->
+                        <!-- Modal -->
+                        <div mdbModal #basicModal="mdbModal" class="modal fade " tabindex="-1" role="dialog"
+                            aria-labelledby="myBasicModalLabel" aria-hidden="true">
+                            <div class="modal-dialog " role="document">
+                                <div class="modal-content ">
+                                    <div class="modal-header">
+                                        <button type="button" class="close pull-right" aria-label="Close"
+                                            (click)="basicModal.hide()">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        <h4 class="modal-title w-100" id="myModalLabel">{{post.title}}</h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div>
+                                            <img class="card-img-top " [src]="post.image" alt="Card image cap">
+                                        </div>
+                                        <div>
+                                            <h5 class="my-1">• PHP {{post.price}}</h5>
+                                            <p class="card-text mb-1">• {{post.category}}</p>
+                                            <p class="card-text mb-1">• {{post.brand}}</p>
+                                            <p class="card-text mb-1">• {{post.description}}</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div *ngIf="yesOrNo" class="center">
+                                        <h3>Are you interested?</h3>
+
+                                        <button type="button" mdbBtn color="primary" class="relative waves-light"
+                                            (click)="yesClicked()" mdbWavesEffect>Yes</button>
+                                        <button type="button" mdbBtn color="secondary" class="waves-light"
+                                            aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>No</button>
+                                    </div>
+                                    <div *ngIf="yes" class="center">
+                                        <h5>Contact this person: {{post.username}}</h5>
+                                        <mdb-icon fas icon="phone"></mdb-icon>
+                                        <p class="card-text mb-1"> 09231615542</p>
+                                        <mdb-icon fas icon="envelope"></mdb-icon>
+                                        <p class="card-text mb-1"> anna@gmail.com</p>
+                                        <button type="button" mdbBtn color="secondary" class="waves-light"
+                                            aria-label="Close" (click)="back()" mdbWavesEffect>Hide contact</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Modal -->
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+            <!--Panel 1-->
+        </div>
+        <!--Tab panels-->
+    </section>
+    <!-- Section -->
+</div>

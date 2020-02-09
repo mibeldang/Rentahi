@@ -1,0 +1,25 @@
+<div style=" background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('https://images.pexels.com/photos/301703/pexels-photo-301703.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')!important;
+background-size:cover;height: 657px;width: 100%;margin: 0;">
+  <h1 id="title">Rentahi</h1>
+  <p id="descriptionTitle">
+    Rent materials with people around.
+  </p>
+  <div style="float: right!important; margin-right: 150px; margin-top:130px;">
+    <mdb-card style="width: 400px;">
+      <form class="text-center border border-light p-5" #sample="ngForm" (ngSubmit)="login()">
+        <p class="h4 mb-4">Login</p>
+        <input type="text" name="username" class="form-control mb-4" placeholder="Username" [(ngModel)]="username">
+        <input type="password" name="password" class="form-control mb-4" placeholder="Password" [(ngModel)]="password">
+        <button mdbBtn color="info" block="true" class="my-4" [disabled]="!sample.valid">Login</button>
+        <div *ngIf="">
+        </div>
+        <p>Not a member?
+          <a routerLink="/signup">Register</a>
+        </p>
+        <div *ngIf="showError" class="alert alert-danger" role="alert">
+          Account Not Found.
+        </div>
+      </form>
+    </mdb-card>
+  </div>
+</div>

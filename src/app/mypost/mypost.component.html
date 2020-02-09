@@ -1,0 +1,43 @@
+<div class="container my-5">
+    <!-- Section -->
+    <section>
+        <!--Tab panels-->
+        <div class="tab-content mb-5">
+            <!--Panel 1-->
+            <div class="tab-pane fade show in active" id="panel31" role="tabpanel">
+                <!-- Grid row -->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-12 col-lg-4" *ngFor="let post of postsList">
+                        <!-- Card -->
+                        <a class="card hoverable mb-4" mdbWavesEffect>
+                            <!-- Card image -->
+                            <p class="card-text mb-1 name">
+                                <mdb-icon far icon="user-circle"></mdb-icon> {{post.username}}
+                            </p>
+                            <img class="card-img-top image" [src]="post.image" alt="Card image cap">
+                            <!-- Card content -->
+                            <div class="card-body">
+                                <h5 class="my-3"> {{post.title}}</h5>
+                                <p class="card-text mb-1">{{post.description}}</p>
+                                <p class="card-text mb-1">PHP {{post.price}}</p>
+                            </div>
+                            <div class="center">
+                                <button type="button" mdbBtn color="primary" class="waves-light" aria-label="Close"
+                                    (click)="notAvailableClicked(post)" mdbWavesEffect>Edit Item</button>
+                                <button type="button" mdbBtn color="danger" class="relative waves-light"
+                                    (click)="delete(post.id)" mdbWavesEffect>Delete</button>
+                                <br><br>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+            <!--Panel 1-->
+        </div>
+        <!--Tab panels-->
+    </section>
+    <!-- Section -->
+</div>

@@ -1,0 +1,36 @@
+
+#card {
+  position: absolute;
+  top: 10px!important;
+  left: 250px!important;
+  width: 800px!important;
+  height: 70px!important;
+  background-color: rgba(79, 195, 247,0.7);
+  padding: 5px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+#md-pills #nav-link.active {
+  color: #fff;
+  background-color: #616161;
+}
+button.close {
+  position: absolute;
+  right: 0;
+  z-index: 2;
+  padding-right: 1rem;
+  padding-top: 0.6rem;
+}
+
+#name {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+img{
+  height: 300px;
+}
+.center{
+  text-align: center;
+}

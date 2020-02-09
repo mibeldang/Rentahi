@@ -1,0 +1,39 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark  light-blue darken-4" [containerInside]="false">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand color" href="#">Rentahi</a></mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+
+            <!-- Dropdown -->
+            <li class="nav-item color">
+                <a class="nav-link  " routerLink='/dashboard' mdbWavesEffect><mdb-icon fas icon="home" class = "color"></mdb-icon> Home
+                </a>
+            </li>
+            <li class="nav-item color">
+                <a class="nav-link  " routerLink='/post' mdbWavesEffect><mdb-icon fas icon="share-square" class="color"></mdb-icon> Post
+                </a>
+            </li>
+            <li class="nav-item color dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="color nav-link dropdown-toggle waves-light"
+                    mdbWavesEffect>
+                    <mdb-icon fas icon="user" class="color"></mdb-icon> User<span class="caret"></span>
+                </a>
+                <div *dropdownMenu class="dropdown-menu  dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light color" mdbWavesEffect href="#" routerLink='/mypost' >My Posts</a>
+                    <a class="dropdown-item waves-light color" mdbWavesEffect href="#">Log out</a>
+                </div>
+            </li>
+
+        </ul>
+        <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>
+

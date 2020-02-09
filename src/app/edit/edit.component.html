@@ -1,0 +1,65 @@
+<app-header></app-header>
+<div *ngIf = "toEditForm" class="container my-5">
+    <form class="md-form" (ngSubmit)="post(form)" #form="ngForm">
+        <div class="file-field big">
+            <h1>What are you listing today?</h1>
+        </div>
+        <div class="right">
+            <h4>Category: </h4>
+            <select name="category" [(ngModel)]="category1" #category2="ngModel"
+                class="browser-default lenght custom-select" required>
+                <option value="Health & Beauty">Health & Beauty</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Home & Furniture">Home & Furniture</option>
+                <option value="Others">Others</option>
+            </select>
+            <div *ngIf="category2.invalid && (category2.dirty || category2.touched )" class="notification">
+                <div *ngIf="category2.errors.required">
+                    <p>Category is required</p>
+                </div>
+            </div>
+            <br><br>
+            <h4>Title: </h4>
+            <input type="text" class="browser-default lenght" ngModel name="title" [(ngModel)]="title1"
+                #title2="ngModel" required />
+            <div *ngIf="title2.invalid && (title2.dirty || title2.touched )" class="notification">
+                <div *ngIf="title2.errors.required">
+                    <p>Title is required</p>
+                </div>
+            </div>
+            <br><br>
+            <h4>Brand: </h4>
+            <input type="text" class="browser-default lenght" ngModel name="brand" [(ngModel)]="brand1"
+                #brand2="ngModel" required />
+            <div *ngIf="brand2.invalid && (brand2.dirty || brand2.touched )" class="notification">
+                <div *ngIf="brand2.errors.required">
+                    <p>Brand is required</p>
+                </div>
+            </div>
+            <br><br>
+            <h4>Price PHP: </h4>
+            <input type="number" class="browser-default lenght" ngModel name="price" [(ngModel)]="price1"
+                #price2="ngModel" required />
+            <div *ngIf="price2.invalid && (price2.dirty || price2.touched )" class="notification">
+                <div *ngIf="price2.errors.required">
+                    <p>Price is required</p>
+                </div>
+            </div>
+            <br><br>
+            <h4>Description: </h4>
+            <input type="text" class="browser-default lenght" ngModel name="description" [(ngModel)]="description1"
+                #description2="ngModel" required />
+            <div *ngIf="description2.invalid && (description2.dirty || description2.touched )" class="notification">
+                <div *ngIf="description2.errors.required">
+                    <p>Description is required</p>
+                </div>
+            </div>
+            <br><br>
+        </div>
+        <button class="btn post btn-block " [disabled]="!form.form.valid">Post</button>
+    </form>
+</div>
+<div *ngIf="mypost">
+    <app-mypost (editPost) = "acceptPostDetails($event)" (toEditForm) = "toEditForm = $event" (mypost) = "mypost = $event"></app-mypost>
+</div>
+
